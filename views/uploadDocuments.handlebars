@@ -1,0 +1,30 @@
+{{#if user}}
+    <nav class="container-fluid ">
+        <div class="navbar-nav d-flex">
+            <a class="nav-link" href="/home">Productos</a>
+            <a class="nav-link cart" href="/api/carts/{{user.cart}}">Carrito</a>
+            <a class="nav-link" href="/chat">Chat</a>
+            <a class="nav-link" href="/auth/logout">Logout</a>
+        </div>
+    </nav>
+{{/if}}
+
+<div class="container">
+    <h1>BY SOF - SUBIR DOCUMENTOS PARA USUARIO PREMIUM</h1>
+    
+    {{#if folderFound}}
+        <form action="/api/users/{{uid}}/documents" enctype="multipart/form-data">
+            <label for="dni">Cargar DNI</label>
+            <input type="file" name="dni" id="dni" accept="image/*, .pdf">
+            <br>
+            <label for="address">Cargar comprobante de domicilio</label>
+            <input type="file" name="address" id="address" accept="image/*, .pdf">
+            <br>
+            <label for="accountStatus">Cargar comprobante de estado de cuenta</label>
+            <input type="file" name="accountStatus" id="accountStatus" accept="image/*, .pdf">
+            <br>
+            <button type="submit">Subir documentos</button>
+        </form>
+    {{/if}}
+
+</div>
